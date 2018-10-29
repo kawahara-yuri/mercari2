@@ -1,24 +1,69 @@
-# README
+## DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Option|
+|------|----|------|
+|password|string|null: false|
+|email|string|null: false, unique: true|
+|nickname|string|null: false|
+|name|string|null: false|
+|kana|string|null: false|
+|postal|integer|null: false|
+|adress|null: false|
+|tel|integer|null: false, unique: true|
+|text|text|
 
-Things you may want to cover:
+### Association
+- belongs_to:order
+- has_many :items
 
-* Ruby version
 
-* System dependencies
+## itemsテーブル
+|Column|Type|Option|
+|------|----|------|
+|user_id|references|null: false, foreign_key: true|
+|image|string|null: false|
+|name|string|null: false|
+|text|text|null: false|
+|category_id|references|
+|genre_id|references|
+|status|text|null: false|
+|days|text|null: false|
+|price|integer|null: false|
+|sold|boolean|default: false|
 
-* Configuration
+### Association
+- belongs_to :user
+- belongs_to :genre
+- belongs_to :category
+- has one :order
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+## genresテーブル
+|Column|Type|Option|
+|------|----|------|
+|name|string|
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- has_many :items
 
-* Deployment instructions
 
-* ...
+## categoriesテーブル
+|Column|Type|Option|
+|------|----|------|
+|name|string|
+
+### Association
+- has_many :items
+
+
+## ordersテーブル
+|Column|Type|Option|
+|------|----|------|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
