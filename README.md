@@ -16,7 +16,7 @@
 ### Association
 - belongs_to:order
 - has_many :items
-- has_many :coments
+- has_many :comments
 
 
 ## itemsテーブル
@@ -36,9 +36,9 @@
 ### Association
 - has one :order
 - belongs_to :user
-- belongs_to :genre
+- belongs_to :brand
 - belongs_to :category
-- has_many :coments
+- has_many :comments
 
 
 
@@ -72,7 +72,7 @@
 - belongs_to :item
 
 
-## comentテーブル
+## commentsテーブル
 |Column|Type|Option|
 |------|----|------|
 |text|text|
