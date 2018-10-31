@@ -16,6 +16,7 @@
 ### Association
 - belongs_to:order
 - has_many :items
+- has_many :coments
 
 
 ## itemsテーブル
@@ -27,8 +28,8 @@
 |text|text|null: false|
 |category_id|references|
 |genre_id|references|
-|status|text|null: false|
-|days|text|null: false|
+|condition|string|null: false|
+|days|string|null: false|
 |price|integer|null: false|
 |sold|boolean|default: false|
 
@@ -40,7 +41,7 @@
 
 
 
-## genresテーブル
+## brandsテーブル
 |Column|Type|Option|
 |------|----|------|
 |name|string|
@@ -64,6 +65,27 @@
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
 
+
 ### Association
 - belongs_to :user
 - belongs_to :item
+
+
+## comentsテーブル
+|Column|Type|Option|
+|------|----|------|
+|coment|text|
+|user_id|references|null: false, foreign_key: true|
+
+- belongs_to :user
+
+
+###ユーザー機能
+###アイテム出品/編集/削除
+※画像投稿１枚のみ
+###コメント編集/削除
+###アイテム購入
+###アイテムのジャンル設定機能
+※ブランド・カテゴリーがあり、アイテムに対して１個ずつの設定
+###検索機能
+※アイテム検索
