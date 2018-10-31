@@ -28,10 +28,10 @@
 |text|text|null: false|
 |category_id|references|
 |genre_id|references|
-|condition|string|null: false|
+|quality_status|string|null: false|
 |days|string|null: false|
 |price|integer|null: false|
-|sold|boolean|default: false|
+|sale_status|boolean|default: false|
 
 ### Association
 - belongs_to :user
