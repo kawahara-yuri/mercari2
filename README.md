@@ -27,17 +27,18 @@
 |name|string|null: false|
 |text|text|null: false|
 |category_id|references|
-|genre_id|references|
+|brand_id|references|
 |quality_status|string|null: false|
 |days|string|null: false|
 |price|integer|null: false|
 |sale_status|boolean|default: false|
 
 ### Association
+- has one :order
 - belongs_to :user
 - belongs_to :genre
 - belongs_to :category
-- has one :order
+- has_many :coments
 
 
 
@@ -71,13 +72,16 @@
 - belongs_to :item
 
 
-## comentsテーブル
+## comentテーブル
 |Column|Type|Option|
 |------|----|------|
-|coment|text|
+|text|text|
 |user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 - belongs_to :user
+- belongs_to :item
+
 
 
 ###ユーザー機能
